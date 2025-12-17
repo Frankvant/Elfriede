@@ -97,6 +97,10 @@ function renderStep() {
         video.controls = true;
         video.classList.add('w-full', 'max-h-[80vh]', 'rounded-lg');
 
+        // FIX: Zorgt dat video niet fullscreen gaat op mobiel
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+
         const button = document.createElement('button');
         button.textContent = step.buttonText;
         button.classList.add('btn-cheerful');
@@ -105,6 +109,13 @@ function renderStep() {
 
         video.addEventListener('ended', () => {
             button.style.display = 'block';
+
+            // FIX: Probeer fullscreen te sluiten als dat toch actief is
+            if (document.fullscreenElement) {
+                document.exitFullscreen().catch(e => console.log("Exit FS failed", e));
+            } else if (document.webkitFullscreenElement) {
+                document.webkitExitFullscreen().catch(e => console.log("Exit Webkit FS failed", e));
+            }
         });
 
         // Fallback timeout for testing
