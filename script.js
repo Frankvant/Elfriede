@@ -19,6 +19,34 @@ const steps = [
 let currentStep = 0;
 const contentArea = document.getElementById('content-area');
 
+function createBackground() {
+    const colors = ['#FF6B6B', '#4ECDC4', '#FFE66D', '#FF9F43'];
+    const body = document.body;
+
+    for (let i = 0; i < 15; i++) {
+        const ball = document.createElement('div');
+        ball.classList.add('floating-ball');
+
+        // Random properties
+        const size = Math.floor(Math.random() * 100) + 50;
+        const left = Math.random() * 100;
+        const top = Math.random() * 100;
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        const duration = Math.floor(Math.random() * 10) + 10;
+        const delay = Math.random() * 10;
+
+        ball.style.width = `${size}px`;
+        ball.style.height = `${size}px`;
+        ball.style.left = `${left}%`;
+        ball.style.top = `${top}%`;
+        ball.style.backgroundColor = color;
+        ball.style.animationDuration = `${duration}s`;
+        ball.style.animationDelay = `${delay}s`;
+
+        body.appendChild(ball);
+    }
+}
+
 function renderStep() {
     contentArea.innerHTML = '';
 
@@ -95,4 +123,7 @@ function nextStep() {
 }
 
 // Initialize
-document.addEventListener('DOMContentLoaded', renderStep);
+document.addEventListener('DOMContentLoaded', () => {
+    createBackground();
+    renderStep();
+});
