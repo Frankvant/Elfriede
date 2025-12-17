@@ -1,18 +1,30 @@
 const steps = [
     {
+        id: 'welcome',
+        type: 'start',
+        title: 'Hoi Elfriede!',
+        buttonText: 'Druk hier om te beginnen!'
+    },
+    {
+        id: 'video-intro',
         type: 'video',
-        src: 'test_intro.mp4',
-        buttonText: 'Verder'
+        src: 'testvideo_mp4.mp4',
+        buttonText: 'Volgende'
     },
     {
+        id: 'quiz-diwi',
         type: 'quiz',
-        question: 'Wat at Elfriede elke lunch?',
-        options: ['Broodje Kaas', 'Salade', 'Kroket'],
-        answer: 'Kroket'
+        question: 'Wanneer is DIWI bedacht?',
+        answers: ['Antwoord 1', 'Antwoord 2', 'Antwoord 3', 'Antwoord 4'],
+        correctIndex: 0,
+        correctSound: 'goed.mp3',
+        wrongSound: 'fout.mp3'
     },
     {
-        type: 'final',
-        text: 'Dit was het begin! Straks meer.'
+        id: 'story-diwi',
+        type: 'text',
+        content: 'Het eerste idee van DIWI is al ontstaan in september 2023. Het kwam voort uit frustratie met Azumuta. Het duurde nog even tot de officiële lancering in mei 2025. Maar ondertussen kunnen we niet meer zonder!',
+        buttonText: 'Volgende'
     }
 ];
 
@@ -27,7 +39,6 @@ function createBackground() {
         const ball = document.createElement('div');
         ball.classList.add('floating-ball');
 
-        // Random properties
         const size = Math.floor(Math.random() * 100) + 50;
         const left = Math.random() * 100;
         const top = Math.random() * 100;
@@ -47,32 +58,59 @@ function createBackground() {
     }
 }
 
+function playSound(soundFile) {
+    if (soundFile) {
+        const audio = new Audio(soundFile);
+        audio.play().catch(e => console.log("Audio play failed:", e));
+    }
+}
+
+function fireConfetti() {
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+    });
+}
+
 function renderStep() {
     contentArea.innerHTML = '';
 
     const step = steps[currentStep];
 
-    if (step.type === 'video') {
-        const video = document.createElement('video');
-        video.src = step.src;
-        video.controls = true;
-        video.classList.add('w-full', 'max-h-[80vh]');
+    if (step.type === 'start') {
+        const title = document.createElement('h1');
+        title.textContent = step.title;
+        title.classList.add('step-title');
 
         const button = document.createElement('button');
         button.textContent = step.buttonText;
-        button.classList.add('primary-button');
-        button.disabled = true;
+        button.classList.add('btn-cheerful');
+        button.addEventListener('click', nextStep);
+
+        contentArea.appendChild(title);
+        contentArea.appendChild(button);
+    }
+    else if (step.type === 'video') {
+        const video = document.createElement('video');
+        video.src = step.src;
+        video.controls = true;
+        video.classList.add('w-full', 'max-h-[80vh]', 'rounded-lg');
+
+        const button = document.createElement('button');
+        button.textContent = step.buttonText;
+        button.classList.add('btn-cheerful');
+        button.style.display = 'none';
+        button.addEventListener('click', nextStep);
 
         video.addEventListener('ended', () => {
-            button.disabled = false;
+            button.style.display = 'block';
         });
 
         // Fallback timeout for testing
         setTimeout(() => {
-            button.disabled = false;
+            button.style.display = 'block';
         }, 5000);
-
-        button.addEventListener('click', nextStep);
 
         contentArea.appendChild(video);
         contentArea.appendChild(button);
@@ -80,23 +118,33 @@ function renderStep() {
     else if (step.type === 'quiz') {
         const question = document.createElement('h2');
         question.textContent = step.question;
-        question.classList.add('text-2xl', 'font-bold', 'mb-6', 'text-amber-500');
+        question.classList.add('step-title');
 
         const optionsContainer = document.createElement('div');
-        optionsContainer.classList.add('w-full', 'space-y-2');
+        optionsContainer.classList.add('w-full', 'space-y-3');
 
-        step.options.forEach(option => {
+        step.answers.forEach((answer, index) => {
             const button = document.createElement('button');
-            button.textContent = option;
-            button.classList.add('quiz-button');
+            button.textContent = answer;
+            button.classList.add('btn-quiz');
 
             button.addEventListener('click', () => {
-                if (option === step.answer) {
+                if (index === step.correctIndex) {
                     button.classList.add('correct');
-                    setTimeout(nextStep, 1000);
+                    playSound(step.correctSound);
+                    fireConfetti();
+
+                    const nextButton = document.createElement('button');
+                    nextButton.textContent = 'Volgende';
+                    nextButton.classList.add('btn-cheerful', 'mt-4');
+                    nextButton.addEventListener('click', nextStep);
+
+                    setTimeout(() => {
+                        optionsContainer.appendChild(nextButton);
+                    }, 1000);
                 } else {
                     button.classList.add('incorrect');
-                    alert('Helaas!');
+                    playSound(step.wrongSound);
                 }
             });
 
@@ -106,12 +154,18 @@ function renderStep() {
         contentArea.appendChild(question);
         contentArea.appendChild(optionsContainer);
     }
-    else if (step.type === 'final') {
-        const message = document.createElement('h2');
-        message.textContent = step.text;
-        message.classList.add('text-3xl', 'font-bold', 'text-amber-500', 'animate-pulse');
+    else if (step.type === 'text') {
+        const text = document.createElement('p');
+        text.textContent = step.content;
+        text.classList.add('step-text');
 
-        contentArea.appendChild(message);
+        const button = document.createElement('button');
+        button.textContent = step.buttonText;
+        button.classList.add('btn-cheerful');
+        button.addEventListener('click', nextStep);
+
+        contentArea.appendChild(text);
+        contentArea.appendChild(button);
     }
 }
 
@@ -122,7 +176,6 @@ function nextStep() {
     }
 }
 
-// Initialize
 document.addEventListener('DOMContentLoaded', () => {
     createBackground();
     renderStep();
