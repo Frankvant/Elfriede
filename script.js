@@ -72,6 +72,17 @@ const steps = [
         explanation: 'Tja, toen Eric naar het bedrijfsbureau werd gehaald, was Malinda niet blij. En dat heeft ze op genuanceerde toon kenbaar gemaakt, wellicht heb je dat mee gekregen. Maar gelukkig kwam alles weer goed toen Frank kwam en wij samen aan de innovaties bij Werkzaak konden werken.'
     },
     {
+        id: 'quiz-arkite',
+        type: 'quiz',
+        question: 'Waarom is deze foto gemaakt?',
+        image: 'arkite.jpeg',
+        answers: ['Omdat je die dag nieuwe schoenen had', 'Start implementatie Arkite tafel', 'Om de nieuwe Werkzaak yell te oefenen', 'Oprichting TINT Rivierenland'],
+        correctIndex: 3,
+        correctSound: 'goed.mp3',
+        wrongSound: 'fout.mp3',
+        explanation: 'In 2023 was het zover, TINT Rivierenland werd opgericht. En daarom werd deze mooie foto gemaakt. Waarbij jij Flappie schoenen aan mocht!'
+    },
+    {
         id: 'story-final',
         type: 'text',
         content: 'Dat was de quiz! Bedankt voor alles Elfriede.',
@@ -178,6 +189,14 @@ function renderStep() {
         contentArea.appendChild(button);
     }
     else if (step.type === 'quiz') {
+        // Nieuw: Voeg afbeelding toe indien aanwezig in de stap
+        if (step.image) {
+            const img = document.createElement('img');
+            img.src = step.image;
+            img.classList.add('w-full', 'max-h-[40vh]', 'object-contain', 'rounded-lg', 'mb-4');
+            contentArea.appendChild(img);
+        }
+
         const question = document.createElement('h2');
         question.textContent = step.question;
         question.classList.add('step-title');
@@ -200,7 +219,7 @@ function renderStep() {
                     nextButton.textContent = 'Volgende';
                     nextButton.classList.add('btn-cheerful', 'mt-8');
                     nextButton.addEventListener('click', () => {
-                        showExplanation(step.explanation);
+                        showExplanation(step);
                     });
 
                     setTimeout(() => {
@@ -233,11 +252,19 @@ function renderStep() {
     }
 }
 
-function showExplanation(explanationText) {
+function showExplanation(step) {
     contentArea.innerHTML = '';
 
+    // Nieuw: Voeg afbeelding toe indien aanwezig in de stap
+    if (step.image) {
+        const img = document.createElement('img');
+        img.src = step.image;
+        img.classList.add('w-full', 'max-h-[40vh]', 'object-contain', 'rounded-lg', 'mb-6');
+        contentArea.appendChild(img);
+    }
+
     const explanation = document.createElement('p');
-    explanation.textContent = explanationText;
+    explanation.textContent = step.explanation;
     explanation.classList.add('step-text');
 
     const button = document.createElement('button');
