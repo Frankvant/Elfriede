@@ -74,7 +74,7 @@ const steps = [
     {
         id: 'quiz-arkite',
         type: 'quiz',
-        question: 'Waarom is deze foto gemaakt?',
+        question: 'Waarom deze foto?',
         image: 'arkite.jpeg',
         answers: ['Je had nieuwe schoenen', 'Start implementatie Arkite tafel', 'Introductie nieuwe Werkzaak yell', 'Oprichting TINT Rivierenland'],
         correctIndex: 3,
@@ -85,9 +85,9 @@ const steps = [
     {
         id: 'quiz-video-msg',
         type: 'quiz',
-        question: 'Bekijk de video. Wat zeg je na “dus….”?',
+        question: 'Wat zeg je na “dus….”?',
         videoQuestion: 'vraag.mp4',
-        answers: ['Ik heb mijn studeerkamer net zo ingericht als de Aardbei', 'Malinda en ik hebben een filmpje opgenomen', 'Ik vond jullie blijkbaar niet heel belangrijk', 'Jullie zullen het zonder mij moeten doen maar dat kunnen jullie wel'],
+        answers: ['Ik mis iets bijzonders', 'We hebben een filmpje opgenomen', 'Ik vond jullie blijkbaar niet heel belangrijk', 'Jullie zullen het zonder mij moeten doen'],
         correctIndex: 1,
         correctSound: 'goed.mp3',
         wrongSound: 'fout.mp3',
@@ -235,7 +235,7 @@ function renderStep() {
         question.classList.add('step-title');
 
         const optionsContainer = document.createElement('div');
-        optionsContainer.classList.add('w-full', 'flex', 'flex-col', 'gap-1');
+        optionsContainer.classList.add('w-full', 'flex', 'flex-col', 'gap-2');
 
         step.answers.forEach((answer, index) => {
             const button = document.createElement('button');
