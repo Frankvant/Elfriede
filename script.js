@@ -235,7 +235,7 @@ function renderStep() {
         question.classList.add('step-title');
 
         const optionsContainer = document.createElement('div');
-        optionsContainer.classList.add('w-full', 'flex', 'flex-col', 'gap-3');
+        optionsContainer.classList.add('w-full', 'flex', 'flex-col', 'gap-2');
 
         step.answers.forEach((answer, index) => {
             const button = document.createElement('button');
@@ -250,7 +250,7 @@ function renderStep() {
 
                     const nextButton = document.createElement('button');
                     nextButton.textContent = 'Volgende';
-                    nextButton.classList.add('btn-cheerful', 'mt-8');
+                    nextButton.classList.add('btn-cheerful', 'mt-4');
                     nextButton.addEventListener('click', () => {
                         showExplanation(step);
                     });
@@ -289,7 +289,6 @@ function renderStep() {
         const video = document.createElement('video');
         video.src = step.src;
         video.controls = true;
-        video.autoplay = true;
         video.classList.add('w-full', 'max-h-[80vh]', 'rounded-lg', 'object-cover');
         video.setAttribute('playsinline', '');
         video.setAttribute('webkit-playsinline', '');
@@ -313,10 +312,6 @@ function renderStep() {
             contentArea.appendChild(button);
         });
 
-        video.play().catch(e => {
-            console.log('Autoplay blocked', e);
-        });
-
         contentArea.appendChild(video);
     }
 }
@@ -329,7 +324,7 @@ function showExplanation(step) {
         const video = document.createElement('video');
         video.src = step.videoExplanation;
         video.controls = true;
-        video.classList.add('w-full', 'max-h-[40vh]', 'rounded-lg', 'mb-6');
+        video.classList.add('w-full', 'max-h-[40vh]', 'rounded-lg', 'mb-3');
         video.setAttribute('playsinline', '');
         video.setAttribute('webkit-playsinline', '');
         contentArea.appendChild(video);
@@ -338,7 +333,7 @@ function showExplanation(step) {
     else if (step.image) {
         const img = document.createElement('img');
         img.src = step.image;
-        img.classList.add('w-full', 'max-h-[40vh]', 'object-contain', 'rounded-lg', 'mb-6');
+        img.classList.add('w-full', 'max-h-[40vh]', 'object-contain', 'rounded-lg', 'mb-3');
         contentArea.appendChild(img);
     }
 
