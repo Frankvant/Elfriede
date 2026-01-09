@@ -97,7 +97,7 @@ const steps = [
     {
         id: 'quiz-chatgpt',
         type: 'quiz',
-        question: 'Hoelang had jij nodig om in te loggen in Chat GPT tijdens de AI training?',
+        question: 'Hoe lang had jij nodig om in te loggen in Chat GPT tijdens de AI training?',
         answers: ['Zo gepiept, je wist inlog gegevens uit het hoofd', 'Even opzoeken en inloggen, paar minuten', 'Nooit meer dan 10 minuten.', 'Het was toch "Ikbeneenlekkerwijf"? Pff, ik maak wel een nieuw Gmailadres aan.'],
         correctIndex: 3,
         correctSound: 'goed.mp3',
