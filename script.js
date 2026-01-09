@@ -8,7 +8,7 @@ const steps = [
     {
         id: 'video-intro',
         type: 'video',
-        src: 'testvideo_mp4.mp4',
+        src: 'intro.mp4',
         buttonText: 'Volgende'
     },
     {
