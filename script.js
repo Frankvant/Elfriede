@@ -83,6 +83,18 @@ const steps = [
         explanation: 'In 2023 was het zover, TINT Rivierenland werd opgericht. En daarom werd deze mooie foto gemaakt. Waarbij jij Flappie schoenen aan mocht!'
     },
     {
+        id: 'quiz-video-msg',
+        type: 'quiz',
+        question: 'Bekijk de video. Wat zeg je na “dus….”?',
+        videoQuestion: 'vraag.mp4',
+        answers: ['Ik heb mijn studeerkamer net zo ingericht als de Aardbei', 'Malinda en ik hebben een filmpje opgenomen', 'Ik vond jullie blijkbaar niet heel belangrijk', 'Jullie zullen het zonder mij moeten doen maar dat kunnen jullie wel'],
+        correctIndex: 1,
+        correctSound: 'goed.mp3',
+        wrongSound: 'fout.mp3',
+        explanation: 'Dit filmpje was gemaakt voor de dag waarop DIWI aan onze collega’s in de branche werd getoond. Vervolgens heb je besloten dat we DIWI aan 8 bedrijven konden vermarkten. Echt ondernemerschap! Zo gaan de Werkzaak innovaties heel Nederland door.',
+        videoExplanation: 'antwoord.mp4'
+    },
+    {
         id: 'story-final',
         type: 'text',
         content: 'Dat was de quiz! Bedankt voor alles Elfriede.',
@@ -189,8 +201,18 @@ function renderStep() {
         contentArea.appendChild(button);
     }
     else if (step.type === 'quiz') {
-        // Nieuw: Voeg afbeelding toe indien aanwezig in de stap
-        if (step.image) {
+        // Check for video question
+        if (step.videoQuestion) {
+            const video = document.createElement('video');
+            video.src = step.videoQuestion;
+            video.controls = true;
+            video.classList.add('w-full', 'max-h-[40vh]', 'rounded-lg', 'mb-4');
+            video.setAttribute('playsinline', '');
+            video.setAttribute('webkit-playsinline', '');
+            contentArea.appendChild(video);
+        }
+        // Check for image (existing functionality)
+        else if (step.image) {
             const img = document.createElement('img');
             img.src = step.image;
             img.classList.add('w-full', 'max-h-[40vh]', 'object-contain', 'rounded-lg', 'mb-4');
@@ -255,8 +277,18 @@ function renderStep() {
 function showExplanation(step) {
     contentArea.innerHTML = '';
 
-    // Nieuw: Voeg afbeelding toe indien aanwezig in de stap
-    if (step.image) {
+    // Check for video explanation
+    if (step.videoExplanation) {
+        const video = document.createElement('video');
+        video.src = step.videoExplanation;
+        video.controls = true;
+        video.classList.add('w-full', 'max-h-[40vh]', 'rounded-lg', 'mb-6');
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+        contentArea.appendChild(video);
+    }
+    // Check for image (existing functionality)
+    else if (step.image) {
         const img = document.createElement('img');
         img.src = step.image;
         img.classList.add('w-full', 'max-h-[40vh]', 'object-contain', 'rounded-lg', 'mb-6');
