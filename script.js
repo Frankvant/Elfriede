@@ -183,7 +183,7 @@ function renderStep() {
         question.classList.add('step-title');
 
         const optionsContainer = document.createElement('div');
-        optionsContainer.classList.add('w-full', 'space-y-3');
+        optionsContainer.classList.add('w-full', 'flex', 'flex-col', 'gap-3');
 
         step.answers.forEach((answer, index) => {
             const button = document.createElement('button');
@@ -198,7 +198,7 @@ function renderStep() {
 
                     const nextButton = document.createElement('button');
                     nextButton.textContent = 'Volgende';
-                    nextButton.classList.add('btn-cheerful', 'mt-4');
+                    nextButton.classList.add('btn-cheerful', 'mt-8');
                     nextButton.addEventListener('click', () => {
                         showExplanation(step.explanation);
                     });
