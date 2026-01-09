@@ -19,7 +19,7 @@ const steps = [
         correctIndex: 0,
         correctSound: 'goed.mp3',
         wrongSound: 'fout.mp3',
-        explanation: 'Het exoskelet was als eerste bij Werkzaak aanwezig, maar die waren al gekocht voor de start van het Programma T&I. De voorleespen werd als eerste geïntroduceerd, de vertaalapparaten en stressmonitoring volgden vlak daarna.'
+        explanation: 'De exoskeletten waren als eerste bij Werkzaak aanwezig, maar die waren al gekocht voor de start van het Programma T&I. De voorleespen werd als eerste geïntroduceerd, de vertaalapparaten en stressmonitoring volgden vlak daarna.'
     },
     {
         id: 'quiz-demo',
@@ -39,7 +39,7 @@ const steps = [
         correctIndex: 2,
         correctSound: 'goed.mp3',
         wrongSound: 'fout.mp3',
-        explanation: 'Tja, jij was ook maar een mens en hebt soms een dag dat je niet te dichtbij moet komen. Tenzij je een espresso machiato komt brengen natuurlijk! Gelukkig vertelde je kledingkeuze ons al een hoop zo we wisten wat voor dag het ging worden. 😉'
+        explanation: 'Tja, jij bent ook maar een mens en hebt soms een dag dat je niet te dichtbij moet komen. Tenzij je een espresso machiato komt brengen natuurlijk! Gelukkig vertelde je kledingkeuze ons al een hoop zo we wisten wat voor dag het ging worden. 😉'
     },
     {
         id: 'quiz-diwi-launch',
@@ -49,7 +49,7 @@ const steps = [
         correctIndex: 2,
         correctSound: 'goed.mp3',
         wrongSound: 'fout.mp3',
-        explanation: 'In januari 2024 zijn we gestart met de ontwikkeling. In november 2024 kwamen we er achter dat we nooit een MT-voorstel hadden ingediend voor DIWI. Dat is toen toch maar even gedaan. April 2025 hebben we DIWI feestelijk in gebruik genomen. In juli 2025 zijn we gestart met de uitrol van DIWI naar andere SW-bedrijven.'
+        explanation: 'In januari 2024 zijn we gestart met de ontwikkeling. In november 2024 kwamen we er achter dat we nooit een MT-voorstel hadden ingediend voor DIWI. Dat is toen toch maar even gedaan. In april 2025 hebben we DIWI feestelijk in gebruik genomen. In juli 2025 zijn we gestart met de uitrol van DIWI naar andere SW-bedrijven.'
     },
     {
         id: 'quiz-buddy',
@@ -59,13 +59,13 @@ const steps = [
         correctIndex: 1,
         correctSound: 'goed.mp3',
         wrongSound: 'fout.mp3',
-        explanation: 'Buddy heeft veel langer geduurd dan verwacht. En het blijkt ontzettend moeilijk om AI goed te laten werken. Maar de voornaamste reden waarom het lang duurde voordat we konden starten, was niet het OMT. Want jij veto-de hun veto. De aanbesteding moest uiteindelijk opnieuw omdat de gekozen ontwikkelaar de opdracht terug gaf. Toen snapten we niet waarom, maar een maand later bleek dat ze failliet gingen.'
+        explanation: 'Buddy heeft veel langer geduurd dan verwacht. En het blijkt ontzettend moeilijk om AI goed te laten werken. Maar de voornaamste reden waarom het lang duurde voordat we konden starten, was niet het OMT. Want jij veto-de hun veto! :-) De aanbesteding moest uiteindelijk opnieuw omdat de gekozen ontwikkelaar de opdracht terug gaf. Toen snapten we niet waarom, maar een maand later bleek dat ze failliet gingen.'
     },
     {
         id: 'quiz-malinda',
         type: 'quiz',
         question: 'Wanneer werd Malinda het meest boos?',
-        answers: ['Toen Eric weg werd getrokken', 'Toen ze verplicht met Frank moest werken', 'Toen je haar een latte met caffeine ipv decaf gaf', 'Toen je haar een latte met normale melk ipv haver gaf'],
+        answers: ['Toen Eric bij het bedrijfsbureau werd geplaatst', 'Toen ze verplicht met Frank moest werken', 'Toen je haar een latte met caffeine in plaats van decaf gaf', 'Toen je haar een latte met normale melk in plaats van havermelk gaf'],
         correctIndex: 0,
         correctSound: 'goed.mp3',
         wrongSound: 'fout.mp3',
