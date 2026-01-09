@@ -76,7 +76,7 @@ const steps = [
         type: 'quiz',
         question: 'Waarom is deze foto gemaakt?',
         image: 'arkite.jpeg',
-        answers: ['Omdat je die dag nieuwe schoenen had', 'Start implementatie Arkite tafel', 'Om de nieuwe Werkzaak yell te oefenen', 'Oprichting TINT Rivierenland'],
+        answers: ['Je had nieuwe schoenen', 'Start implementatie Arkite tafel', 'Introductie nieuwe Werkzaak yell', 'Oprichting TINT Rivierenland'],
         correctIndex: 3,
         correctSound: 'goed.mp3',
         wrongSound: 'fout.mp3',
