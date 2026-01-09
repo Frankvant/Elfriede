@@ -235,7 +235,7 @@ function renderStep() {
         question.classList.add('step-title');
 
         const optionsContainer = document.createElement('div');
-        optionsContainer.classList.add('w-full', 'flex', 'flex-col', 'gap-2');
+        optionsContainer.classList.add('w-full', 'flex', 'flex-col', 'gap-1');
 
         step.answers.forEach((answer, index) => {
             const button = document.createElement('button');

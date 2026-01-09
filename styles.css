@@ -53,6 +53,11 @@ body {
     border-radius: 0.5rem;
 }
 
+video {
+    background-color: transparent !important;
+    /* Dit verwijdert de standaard grijze overlay op iOS */
+}
+
 .btn-cheerful {
     background: linear-gradient(to right, #ec4899, #f97316);
     color: white;
@@ -80,11 +85,6 @@ body {
     border: 2px solid #f59e0b;
     transition: all 0.2s;
     font-weight: medium;
-}
-
-.btn-quiz:hover {
-    background-color: #fef3c7;
-    transform: translateY(-2px);
 }
 
 .btn-quiz.correct {
