@@ -95,10 +95,21 @@ const steps = [
         videoExplanation: 'antwoord.mp4'
     },
     {
-        id: 'story-final',
-        type: 'text',
-        content: 'Dat was de quiz! Bedankt voor alles Elfriede.',
-        buttonText: 'Bekijk je cadeau'
+        id: 'quiz-chatgpt',
+        type: 'quiz',
+        question: 'Hoelang had jij nodig om in te loggen in Chat GPT tijdens de AI training?',
+        answers: ['Zo gepiept, je wist inlog gegevens uit het hoofd', 'Even opzoeken en inloggen, paar minuten', 'Nooit meer dan 10 minuten.', 'Het was toch "Ikbeneenlekkerwijf"? Pff, ik maak wel een nieuw Gmailadres aan.'],
+        correctIndex: 3,
+        correctSound: 'goed.mp3',
+        wrongSound: 'fout.mp3',
+        explanation: 'Soms wist je je wachtwoord wel, maar op een gegeven moment had je ook twee abonnementen lopen. Maar als je er eenmaal in zat, ging je wel degelijk volop aan de slag. Weer een teken dat innovatie en jij zo goed bij elkaar passen!'
+    },
+    {
+        id: 'video-outtro',
+        type: 'outtro',
+        src: 'outtro.mp4',
+        finalTitle: 'Bedankt voor alles Elfriede!',
+        buttonText: 'Begin opnieuw'
     }
 ];
 
@@ -271,6 +282,42 @@ function renderStep() {
 
         contentArea.appendChild(text);
         contentArea.appendChild(button);
+    }
+    else if (step.type === 'outtro') {
+        contentArea.innerHTML = '';
+
+        const video = document.createElement('video');
+        video.src = step.src;
+        video.controls = true;
+        video.autoplay = true;
+        video.classList.add('w-full', 'max-h-[80vh]', 'rounded-lg', 'object-cover');
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+
+        video.addEventListener('ended', () => {
+            contentArea.innerHTML = '';
+
+            const title = document.createElement('h1');
+            title.textContent = step.finalTitle;
+            title.classList.add('step-title');
+
+            const button = document.createElement('button');
+            button.textContent = step.buttonText;
+            button.classList.add('btn-cheerful');
+            button.addEventListener('click', () => {
+                currentStep = 0;
+                renderStep();
+            });
+
+            contentArea.appendChild(title);
+            contentArea.appendChild(button);
+        });
+
+        video.play().catch(e => {
+            console.log('Autoplay blocked', e);
+        });
+
+        contentArea.appendChild(video);
     }
 }
 
