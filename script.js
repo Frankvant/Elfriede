@@ -178,7 +178,7 @@ function renderStep() {
     }
     else if (step.type === 'video') {
         const video = document.createElement('video');
-        video.src = step.src;
+        video.src = step.src + '#t=0.001';
         video.controls = true;
         video.classList.add('w-full', 'max-h-[80vh]', 'rounded-lg');
 
@@ -215,7 +215,7 @@ function renderStep() {
         // Check for video question
         if (step.videoQuestion) {
             const video = document.createElement('video');
-            video.src = step.videoQuestion;
+            video.src = step.videoQuestion + '#t=0.001';
             video.controls = true;
             video.classList.add('w-full', 'max-h-[40vh]', 'rounded-lg', 'mb-4');
             video.setAttribute('playsinline', '');
@@ -287,7 +287,7 @@ function renderStep() {
         contentArea.innerHTML = '';
 
         const video = document.createElement('video');
-        video.src = step.src;
+        video.src = step.src + '#t=0.001';
         video.controls = true;
         video.classList.add('w-full', 'max-h-[80vh]', 'rounded-lg', 'object-cover');
         video.setAttribute('playsinline', '');
@@ -322,7 +322,7 @@ function showExplanation(step) {
     // Check for video explanation
     if (step.videoExplanation) {
         const video = document.createElement('video');
-        video.src = step.videoExplanation;
+        video.src = step.videoExplanation + '#t=0.001';
         video.controls = true;
         video.classList.add('w-full', 'max-h-[40vh]', 'rounded-lg', 'mb-3');
         video.setAttribute('playsinline', '');
