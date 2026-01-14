@@ -29,7 +29,7 @@ const steps = [
         correctIndex: 3,
         correctSound: 'goed.mp3',
         wrongSound: 'fout.mp3',
-        explanation: 'Bij jouw eerste demo van de voorleespen kwam je vlak voor de demo naar Malinda dat je de pen wilde hebben. Malinda vertelde jou toen dat hij niet was opgeladen. Er volgde toen een karakteristiek Rotterdamse verwensing. Maar gelukkig werd hij daarna alsnog prima gebruikt binnen Werkzaak!'
+        explanation: 'In al je enthousiasme dacht je tijdens de bijeenkomst van een aantal bestuurders  opeens “ik vraag even aan Malinda om de voorleespen tevoorschijn te halen en deze te demonstreren”. Niet wetende dat we de voorleespen wel in huis hebben maar deze niet dagelijks wordt gebruikt . Waardoor deze niet opgeladen was. Helaas ging de demonstratie niet door en dat vond je natuurlijk niet zo leuk, tenminste dat leek uit je reactie af te lezen 😊. Gelukkig wordt de pen nog steeds succesvol ingezet bij Werkzaak.'
     },
     {
         id: 'quiz-kleding',
@@ -39,7 +39,7 @@ const steps = [
         correctIndex: 2,
         correctSound: 'goed.mp3',
         wrongSound: 'fout.mp3',
-        explanation: 'Tja, jij bent ook maar een mens en hebt soms een dag dat je niet te dichtbij moet komen. Tenzij je een espresso machiato komt brengen natuurlijk! Gelukkig vertelde je kledingkeuze ons al een hoop zo we wisten wat voor dag het ging worden. 😉'
+        explanation: 'Kleren maken de vrouw waarbij je de kleur van je kleding ook kunt gebruiken in je werk. Met kleur kun je non-verbaal  communiceren heb je ooit uitgelegd. Dat was ook handige informatie voor ons natuurlijk. Dus naar gelang je outfit konden wij een goede inschatting maken welke onderwerpen we beter wel of niet konden bespreken met je. Geel paars groen helemaal in ons straatje, veel rood en geel dan toch beter om je te trakteren op een espresso macchiato.'
     },
     {
         id: 'quiz-diwi-launch',
@@ -49,7 +49,7 @@ const steps = [
         correctIndex: 2,
         correctSound: 'goed.mp3',
         wrongSound: 'fout.mp3',
-        explanation: 'In januari 2024 zijn we gestart met de ontwikkeling. In november 2024 kwamen we er achter dat we nooit een MT-voorstel hadden ingediend voor DIWI. Dat is toen toch maar even gedaan. In april 2025 hebben we DIWI feestelijk in gebruik genomen. In juli 2025 zijn we gestart met de uitrol van DIWI naar andere SW-bedrijven.'
+        explanation: 'Na grondig onderzoek met TNO zijn we in januari 2024 gestart met de ontwikkeling. In november 2024 kwamen we er achter dat we nooit een MT-voorstel hadden ingediend voor DIWI. Dat is toen toch maar even gedaan. In april 2025 hebben we DIWI feestelijk in gebruik genomen. In juli 2025 zijn we gestart met de uitrol van DIWI naar andere SW-bedrijven.'
     },
     {
         id: 'quiz-buddy',
