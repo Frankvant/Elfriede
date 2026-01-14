@@ -54,8 +54,19 @@ body {
 }
 
 video {
+    /* Verwijdert de grijze klik-achtergrond op mobiel */
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+
+    /* Zorgt dat er geen schaduw of rand over de video ligt */
+    box-shadow: none !important;
+    outline: none !important;
     background-color: transparent !important;
-    /* Dit verwijdert de standaard grijze overlay op iOS */
+
+    /* Zorgt voor nette afronding zonder 'lekkende' achtergrond */
+    border-radius: 0.5rem; /* matcht rounded-lg */
+    overflow: hidden;
+    z-index: 10; /* Zorg dat hij boven zwevende elementen ligt */
 }
 
 .btn-cheerful {
